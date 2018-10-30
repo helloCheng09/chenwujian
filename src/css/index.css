@@ -1,0 +1,314 @@
+@import "reset.css";
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+#indexWrap {
+  position: relative;
+  font-size: 0;
+}
+#indexWrap .left-index {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 340px;
+  vertical-align: top;
+  background-color: #272b34;
+  color: #ff9549;
+}
+#indexWrap .left-index .l-top-logo {
+  height: 100px;
+  background-color: #ff9549;
+}
+#indexWrap .left-index .l-nick-name {
+  padding: 0 30px;
+  font-size: 28px;
+  line-height: 4;
+}
+#indexWrap .left-index .search-item {
+  padding: 0 30px;
+}
+#indexWrap .left-index .search-item img {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+#indexWrap .left-index .search-item label {
+  font-style: normal;
+  font-size: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+#indexWrap .left-index .search-item input {
+  display: block;
+  line-height: 2;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-top: 20px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  background-color: #e5e5e5;
+}
+#indexWrap .left-index .search-item input::placeholder {
+  color: #777;
+}
+#indexWrap .left-index .school-list {
+  margin-top: 30px;
+  padding: 0 30px;
+}
+#indexWrap .left-index .school-list .search-max {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+#indexWrap .left-index .school-list .search-max img {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+#indexWrap .left-index .school-list .search-max label {
+  font-style: normal;
+  font-size: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+#indexWrap .left-index .school-list ul {
+  height: 440px;
+  overflow-y: auto;
+}
+#indexWrap .left-index .school-list ul .school-name {
+  line-height: 2;
+  font-size: 18px;
+  color: #ccc;
+  cursor: pointer;
+}
+#indexWrap .left-index .school-list ul .selected {
+  display: inline-block;
+  width: 240px;
+  text-align: center;
+  border-radius: 40px;
+  background-color: #ff9549;
+  color: #fff;
+}
+#indexWrap .left-index .school-list ul .school-name:hover {
+  display: inline-block;
+  width: 240px;
+  text-align: center;
+  border-radius: 40px;
+  background-color: #ffc093;
+  color: #fff;
+}
+#indexWrap .left-index .school-list ul::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 10px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+#indexWrap .left-index .school-list ul::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: #b4b4b4;
+}
+#indexWrap .left-index .school-list ul::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+  background: #fff;
+}
+#indexWrap .left-index footer {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#indexWrap .left-index footer a {
+  text-decoration: underline;
+}
+#indexWrap .right-index {
+  display: inline-block;
+  width: 100%;
+  padding-left: 340px;
+}
+#indexWrap .right-index .r-top-logo {
+  position: relative;
+  display: block;
+  line-height: 100px;
+}
+#indexWrap .right-index .r-top-logo span:nth-of-type(1) {
+  display: block;
+  font-size: 36px;
+  height: 100px;
+  padding-left: 50px;
+  padding-right: 100px;
+  border-bottom: 1px solid #f6f6f6;
+}
+#indexWrap .right-index .r-top-logo span:nth-of-type(2) {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+}
+#indexWrap .right-index .r-top-logo span:nth-of-type(2):hover {
+  color: #ff9549;
+}
+#indexWrap .right-index .r-top-head {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  line-height: 100px;
+  border-bottom: 4px solid #f6f6f6;
+}
+#indexWrap .right-index .r-top-head .head-left {
+  float: left;
+  margin: 0 60px;
+}
+#indexWrap .right-index .r-top-head .head-right {
+  margin-left: 555px;
+}
+#indexWrap .right-index .r-top-head .head-right .layui-input {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+  line-height: 40px;
+  border: none;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #e6e1e1;
+  outline: none;
+  cursor: pointer;
+}
+#indexWrap .right-index .r-top-head .tag-morning {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+  line-height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #e6e1e1;
+  color: #666;
+  cursor: pointer;
+}
+#indexWrap .right-index .r-top-head .checked {
+  background-color: #ff9549;
+  color: #fff;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-left {
+  display: inline-block;
+  width: 480px;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-right {
+  display: inline-block;
+  width: 400px;
+  margin-left: 180px;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-right canvas {
+  width: 400px;
+  height: 400px;
+}
+#indexWrap .right-index .main-container .col-one .yingdao-item {
+  font-size: 28px;
+  line-height: 2;
+}
+#indexWrap .right-index .main-container .col-one .yingdao-item:nth-of-type(2) .color-icon {
+  background-color: #50ca50 !important;
+}
+#indexWrap .right-index .main-container .col-one .yingdao-item:nth-of-type(3) .color-icon {
+  background-color: red !important;
+}
+#indexWrap .right-index .main-container .col-one .yd-left {
+  margin-left: 20px;
+}
+#indexWrap .right-index .main-container .col-one .yd-left .color-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background-color: #4684dc;
+}
+#indexWrap .right-index .main-container .col-one .yd-left .text-item {
+  vertical-align: middle;
+  color: #333;
+}
+#indexWrap .right-index .main-container .col-one .yd-right {
+  margin-left: 100px;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail {
+  margin-left: 80px;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .list-two {
+  width: 330px;
+  height: 250px;
+  padding: 10px 20px;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .list-two::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 10px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .list-two::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: #303030;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .list-two::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+  background: #919191;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .detail-item {
+  line-height: 2;
+  font-size: 20px;
+  color: #666;
+}
+#indexWrap .right-index .main-container .col-one .qiandao-detail .detail-item .banji {
+  margin-right: 90px;
+}
+#indexWrap .right-index .main-container .col-two {
+  margin: 40px 50px;
+}
+#indexWrap .right-index .main-container .color-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-color: #ff9549;
+}
+#indexWrap .right-index .main-container .tiwen-title {
+  font-size: 28px;
+  vertical-align: middle;
+  font-weight: normal;
+}
+#indexWrap .right-index .main-container .class-box h4 {
+  margin: 0 50px;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 2;
+  color: #ff9549;
+}
+#indexWrap .right-index .main-container .class-box .yichang-detail {
+  display: inline-block;
+  margin: 0 50px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 2;
+  color: #666;
+}
+#indexWrap .right-index .main-container .class-box .yc-name {
+  margin-right: 40px;
+}

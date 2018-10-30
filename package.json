@@ -1,0 +1,14 @@
+{
+  "name": "chenwujian",
+  "version": "1.0.0",
+  "description": "mama",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "po_cheng",
+  "license": "ISC"
+}
