@@ -1,22 +1,76 @@
 (function ($, root) {
 
     // 日期初始化
-    function dataInit() {
+    function dateInit() {
         laydate.render({
             elem: '#test1',
         });
     }
+
+
+    // 渲染学校列表
+    function renSchollList(data) {
+
+    }
+    // 渲染 应到 实到 请假
+    function renBeHere(data) {
+        $(".yingdao-item").eq(0).find(".yd-right").text(data[0] + " 人")
+        $(".yingdao-item").eq(1).find(".yd-right").text(data[1] + " 人")
+        $(".yingdao-item").eq(2).find(".yd-right").text(data[2].length + " 人")
+    }
+    // 渲染请假人
+    function renLeave(data) {
+        let tsArr = []
+        $(".list-two").empty()
+        console.log(data)
+        data.forEach(function (item) {
+            let html = `
+                <li class="detail-item" data-id="${item["id"]}">
+                    <span class="banji">${item["room_num"]}</span>
+                    <span class="student-name">${item["name"]}</span>
+                </li>
+            `
+            let htmlTs = `  
+                <div class="detail-hid" style="display:block;">
+                    <div class="det-item">请假人：${item["name"]}</div>
+                    <div class="det-item">班级：${item["room_num"]}</div>
+                    <div class="det-item">请假理由：${item["leave_reason"]}</div>
+                </div> 
+              `
+
+            $(".list-two").append(html)
+            //页面层
+            
+            tsArr.push(htmlTs)
+            console.log(tsArr)
+        })
+        $(".detail-item").on("click", function(){
+            let stuNum = $(this).index()
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['420px', '240px'], //宽高
+                content: tsArr[stuNum]
+            });
+        })
+    }
+
     // 饼图
-    function bingChart() {
+    function bingChart(data) {
+        console.log(data)
+        let quexi = Number(data[0] - data[1])
+        let qiandao = Number(data[1])
+        let percent1 = qiandao / data[0]
+        let percent2 = quexi / data[0]
         var data = [{
-            amount: 26,
-            ratio: 0.5,
+            amount: qiandao,
+            ratio: percent1,
             memo: '实到',
             const: 'const'
         }, {
-            amount: 10,
-            ratio: 0.1,
-            memo: '请假',
+            amount: quexi,
+            ratio: percent2,
+            memo: '未到',
             const: 'const'
         }];
 
@@ -287,16 +341,10 @@
         });
     }
 
-    // 初始化
-    function renderInit (data) {
-
-    }
-
     root.bingChart = bingChart
-    root.dataInit = dataInit
-    root.renderInit = renderInit    
-
-
-
+    root.dateInit = dateInit
+    root.renSchollList = renSchollList
+    root.renBeHere = renBeHere
+    root.renLeave = renLeave
 
 }(window.$, window.signIn || (window.signIn = {})))

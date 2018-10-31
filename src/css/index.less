@@ -18,8 +18,7 @@
         background-color: #272b34;
         color: #ff9549;
         .l-top-logo {
-            height: 100px;
-            background-color: #ff9549;
+            // height: 100px;
         }
         .l-nick-name {
             padding: 0 30px;
@@ -40,6 +39,9 @@
                 margin-left: 5px;
                 vertical-align: middle;
             }
+            form {
+                display: flex;
+            }
             input {
                 display: block;
                 line-height: 2;
@@ -54,6 +56,9 @@
             }
             input::placeholder {
                 color: #777;
+            }
+            input:nth-of-type(2) {
+                margin-left: 10px;
             }
         }
         .school-list {
@@ -79,9 +84,10 @@
                 height: 440px;
                 overflow-y: auto;
                 .school-name {
+                    display: inline-block;
+                    width: 240px;
                     line-height: 2;
-                    font-size: 18px; 
-                    // transition: all 1000ms ease;
+                    font-size: 18px; // transition: all 1000ms ease;
                     color: #ccc;
                     cursor: pointer;
                 }
@@ -116,7 +122,8 @@
             ul::-webkit-scrollbar-track {
                 /*滚动条里面轨道*/
                 border-radius: 10px;
-                background: #fff;;
+                background: #fff;
+                ;
             }
         }
         footer {
@@ -127,6 +134,7 @@
             cursor: pointer;
             a {
                 text-decoration: underline;
+                color: #ff9549;
             }
         }
     }
@@ -153,9 +161,14 @@
                 transform: translateY(-50%);
                 font-size: 20px;
                 cursor: pointer;
+                a {
+                    color: #333;
+                }
             }
             span:nth-of-type(2):hover {
-                color: #ff9549;
+                a {
+                    color: #ff9549;
+                }
             }
         }
         .r-top-head {
@@ -181,7 +194,7 @@
                     border-radius: 20px;
                     text-align: center;
                     vertical-align: middle;
-                    background-color: #e6e1e1;
+                    background-color: #fff;
                     outline: none;
                     cursor: pointer;
                 }
@@ -212,10 +225,10 @@
                 }
                 .qiandao-right {
                     display: inline-block;
-                    width: 400px;
-                    margin-left: 180px;
+                    width:500px;
+                    margin-left: 20px;
                     canvas {
-                        width: 400px;
+                        width: 500px;
                         height: 400px;
                     }
                 }
@@ -273,14 +286,19 @@
                     .list-two::-webkit-scrollbar-track {
                         /*滚动条里面轨道*/
                         border-radius: 10px;
-                        background: rgb(145, 145, 145);;
+                        background: rgb(145, 145, 145);
+                        ;
                     }
                     .detail-item {
                         line-height: 2;
                         font-size: 20px;
                         color: #666;
+                        cursor: pointer;
                         .banji {
-                            margin-right: 90px;
+                           
+                            display: inline-block;
+                            margin-right: 90px; 
+                            min-width: 115px;
                         }
                     }
                 }
@@ -323,4 +341,16 @@
             }
         }
     }
+}
+.detail-hid{
+    padding: 10px;
+    line-height: 1.5;
+    .det-item{
+        margin-bottom: 4px;
+        font-size: 20px;
+    }
+}
+.layui-layer-content{
+    padding: 10px;
+    font-size: 18px;
 }

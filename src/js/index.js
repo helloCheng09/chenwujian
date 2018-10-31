@@ -13,7 +13,7 @@ if ($("#indexWrap").length) {
 
     // 日期实例化
     //常规用法
-    root.dataInit()
+    root.dateInit()
     // 赋值当天日期
     let curDay = getNowFormatDate()
     console.log(curDay)
@@ -35,25 +35,14 @@ if ($("#indexWrap").length) {
         return currentdate;
     }
 
-    // 饼图实例化
-    // 饼图
-    root.bingChart()
-
-    // 初始化获取信息
-    let dataMock = []
-    dataMock = [{
-        date: "2010-10-30"
-    }, {
-        schoolid: "2",
-        school: "合肥一中"
-    }, {
-        action: "1"
-    }]
-
     // 点击选择学校
     root.cutSchool()
     // 切换晨午检
     root.cutAction()
+    // 初始化
+    root.dataInit()
+    // 切换调取
+    root.clickData() 
 
 
 
