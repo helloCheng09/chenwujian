@@ -102,8 +102,7 @@
     }
 
     // 点击显示请假原因
-    function qingjiaDetail () {
-        $()
+    function qingjiaDetail() {
     }
 
     root.clickData = clickData

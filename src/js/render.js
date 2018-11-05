@@ -17,6 +17,8 @@
         $(".yingdao-item").eq(0).find(".yd-right").text(data[0] + " 人")
         $(".yingdao-item").eq(1).find(".yd-right").text(data[1] + " 人")
         $(".yingdao-item").eq(2).find(".yd-right").text(data[2].length + " 人")
+        // 修复没数据错误
+        root.erroCorrect()
     }
     // 渲染请假人
     function renLeave(data) {
@@ -40,11 +42,11 @@
 
             $(".list-two").append(html)
             //页面层
-            
+
             tsArr.push(htmlTs)
             console.log(tsArr)
         })
-        $(".detail-item").on("click", function(){
+        $(".detail-item").on("click", function () {
             let stuNum = $(this).index()
             layer.open({
                 type: 1,
@@ -52,6 +54,18 @@
                 area: ['420px', '240px'], //宽高
                 content: tsArr[stuNum]
             });
+        })
+    }
+    // 如果应到 实到 请假 人数为undefind
+    let erroCorrect = () => {
+        $(document).ready(function () {
+            $(".yingdao-item").each(function () {
+                let data = $(this).find(".yd-right").text()
+                console.log(data)
+                if (data === "undefined 人") {
+                    $(this).find(".yd-right").text("0 人")
+                }
+            })
         })
     }
 
@@ -341,6 +355,8 @@
         });
     }
 
+
+    root.erroCorrect = erroCorrect
     root.bingChart = bingChart
     root.dateInit = dateInit
     root.renSchollList = renSchollList

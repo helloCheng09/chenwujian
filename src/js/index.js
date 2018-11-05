@@ -43,7 +43,7 @@ if ($("#indexWrap").length) {
     root.dataInit()
     // 切换调取
     root.clickData() 
-
-
+    // 修复没数据错误
+    root.erroCorrect()
 
 }

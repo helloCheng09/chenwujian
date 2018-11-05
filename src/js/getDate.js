@@ -3,6 +3,7 @@
     // 获取学校数据
     function getData(dataObj) {
         $.ajax({
+            // url:"http://www.mamawozaizhe.com/inspection/inspection/inspectionAjax",
             url: "https://www.easy-mock.com/mock/5b9c69299c53ef2876d29227/list/cw",
             type: "POST",
             dataType: "json",
