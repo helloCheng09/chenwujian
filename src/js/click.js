@@ -22,6 +22,12 @@
         $("ul .school-name").on("click", function () {
             // 学校id
             let schoolid = $(this).attr("data-id")
+            let schoolName = $(this).text()
+            // 初始化跳转链接的学校名
+            root.linkName(schoolName)
+            // 跳转链接的地址
+            let linkAdres = "./school_index.html?id=" + schoolid
+            root.linkHref(linkAdres)
             // 日期
             let date = $("#test1").val()
             // 签到时间
@@ -102,8 +108,7 @@
     }
 
     // 点击显示请假原因
-    function qingjiaDetail() {
-    }
+    function qingjiaDetail() {}
 
     root.clickData = clickData
     root.cutAction = cutAction

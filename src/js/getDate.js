@@ -1,10 +1,10 @@
 (function ($, root) {
-
+    let  baseUrl = "http://www.mamawozaizhe.com/inspection/inspection/"
     // 获取学校数据
     function getData(dataObj) {
         $.ajax({
-            // url:"http://www.mamawozaizhe.com/inspection/inspection/inspectionAjax",
-            url: "https://www.easy-mock.com/mock/5b9c69299c53ef2876d29227/list/cw",
+            url:baseUrl + "inspectionAjax",
+            // url: "https://www.easy-mock.com/mock/5b9c69299c53ef2876d29227/list/cw",
             type: "POST",
             dataType: "json",
             data: dataObj,
@@ -66,8 +66,12 @@
         let action
         $("ul .school-name").each(function () {
             let ele = $(this)
+
             if ($(this).hasClass("selected")) {
                 schoolid = ele.attr("data-id")
+                let schoolName = ele.text()
+                // 跳转链接的学校名
+                root.linkName(schoolName)
             }
         })
         $(".head-left .tag-morning").each(function () {
@@ -80,10 +84,26 @@
             date: date,
             id: schoolid,
             action: action
-        }
+        }   
+        // 跳转链接的地址
+        // let linkAdres = "./school_index.html?id=" + schoolid 
+         let linkAdres = "http://www.mamawozaizhe.com/inspection/inspection/signDetails.html?school_id=" + schoolid 
+        root.linkHref(linkAdres)
+
         root.getData(dataObj)
     }
 
+    // 跳转链接名
+    let linkName = (schoolName) => {
+        $(".check-school-cw").find("em").text(schoolName)
+    }
+    // 跳转链接地址
+    let linkHref = (href) =>{
+        $(".check-school-cw").children(".school-link").attr("href", href)
+    } 
+
+    root.linkHref = linkHref
+    root.linkName = linkName
     root.dataDeal = dataDeal
     root.getData = getData
     root.dataInit = dataInit

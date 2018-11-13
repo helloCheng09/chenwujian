@@ -180,7 +180,21 @@
 #indexWrap .right-index .r-top-head .head-right {
   margin-left: 555px;
 }
+#indexWrap .right-index .r-top-head .head-right .check-school-cw {
+  float: right;
+}
+#indexWrap .right-index .r-top-head .head-right .school-link {
+  margin-right: 20px;
+  text-decoration: underline;
+  font-size: 18px;
+  transition: all 200ms linear;
+  color: red;
+}
+#indexWrap .right-index .r-top-head .head-right em {
+  font-style: normal;
+}
 #indexWrap .right-index .r-top-head .head-right .layui-input {
+  float: left;
   display: inline-block;
   width: 120px;
   height: 40px;
