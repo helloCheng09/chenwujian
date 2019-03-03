@@ -22,56 +22,71 @@
     }
     // 渲染请假人
     function renLeave(data) {
+       
         let tsArr = []
         $(".list-two").empty()
-        console.log(data)
-        data.forEach(function (item) {
-            let html = `
-                <li class="detail-item" data-id="${item["id"]}">
-                    <span class="banji">${item["room_num"]}</span>
-                    <span class="student-name">${item["name"]}</span>
-                </li>
-            `
-            let htmlTs = `  
-                <div class="detail-hid" style="display:block;">
-                    <div class="det-item">请假人：${item["name"]}</div>
-                    <div class="det-item">班级：${item["room_num"]}</div>
-                    <div class="det-item">请假理由：${item["leave_reason"]}</div>
-                </div> 
+        let html = ''
+        let htmlTs = ''
+        if (data.length == 0) {
+            html = `  
+                <div class="none-qingjia detail-item">
+                    <span class="banji">今日无人请假~</span>  
+                </div>
               `
-
             $(".list-two").append(html)
-            //页面层
+        } else {    
+            data.forEach(function (item) {
+                html = `
+                   <li class="detail-item" data-id="${item["id"]}">
+                       <span class="banji">${item["room_num"]}</span>
+                       <span class="student-name">${item["name"]}</span>
+                   </li>
+               `
+                htmlTs = `  
+                   <div class="detail-hid" style="display:block;">
+                       <div class="det-item">请假人：${item["name"]}</div>
+                       <div class="det-item">班级：${item["room_num"]}</div>
+                       <div class="det-item">请假理由：${item["leave_reason"]}</div>
+                   </div> 
+                 `
 
-            tsArr.push(htmlTs)
-            console.log(tsArr)
-        })
-        $(".detail-item").on("click", function () {
-            let stuNum = $(this).index()
-            layer.open({
-                type: 1,
-                skin: 'layui-layer-rim', //加上边框
-                area: ['420px', '240px'], //宽高
-                content: tsArr[stuNum]
-            });
-        })
+                $(".list-two").append(html)
+                //页面层
+
+                tsArr.push(htmlTs)
+            })
+            $(".detail-item").on("click", function () {
+                let stuNum = $(this).index()
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['420px', '240px'], //宽高
+                    content: tsArr[stuNum]
+                });
+            })
+        }
+
     }
     // 如果应到 实到 请假 人数为undefind
     let erroCorrect = () => {
         $(document).ready(function () {
             $(".yingdao-item").each(function () {
                 let data = $(this).find(".yd-right").text()
-                console.log(data)
                 if (data === "undefined 人") {
                     $(this).find(".yd-right").text("0 人")
                 }
             })
+            let html = `
+                <div class="yichang-detail none-heat">
+                    <span class="yc-name ">今日没有体温数据~</span>
+                </div>
+            `
+            $("#insertHeat").empty().append(html)
         })
     }
 
     // 饼图
     function bingChart(data) {
-        console.log(data)
         let quexi = Number(data[0] - data[1])
         let qiandao = Number(data[1])
         let percent1 = qiandao / data[0]
@@ -355,7 +370,46 @@
         });
     }
 
+    // 渲染 学生体温情况
+    function renderHeart (data) {
+        console.log(data)
+        if (data.length == 0) {
+            let html = `
+                <div class="yichang-detail none-heat">
+                    <span class="yc-name ">今日没有体温数据~</span>
+                </div>
+            `
+            $("#insertHeat").empty().append(html)
+        } else {
+            let html = ''
+            $.each(data, function (index, item) {
+                let id = item.id
+                let heat = Number(item.heat)
+                let name = item.name
+                let room_num = item.room_num
+                let des = '' // 根据温度的描述
+                if (heat == -1) {
+                    des = "未测量"
+                } else if (heat <=  37) {
+                    des = '正常'
+                }else if (37 < heat <= 38) {
+                    des= '低烧' + ' ' + heat + '°C'
+                }else if (heat > 38) {
+                    des = '高烧'+ ' ' + heat + '°C'
+                }
+                html += `
+                    <div class="yichang-detail" data-id='${id}'>
+                        <span class="yc-name">${name}</span>
+                        <span class="yc-tag">${des} </span>
+                    </div>
+                `
+            })
+            
+            $("#insertHeat").empty().append(html)
+        }
 
+    }
+    root.renderHeart = renderHeart
     root.erroCorrect = erroCorrect
     root.bingChart = bingChart
     root.dateInit = dateInit

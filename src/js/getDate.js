@@ -2,8 +2,15 @@
     let  baseUrl = "http://www.mamawozaizhe.com/inspection/inspection/"
     // 获取学校数据
     function getData(dataObj) {
+        let url = ''
+        // http://www.mamawozaizhe.com/inspection/inspection/signDetailsAjax
+        if (document.getElementById('indexWrap')) {
+            url = baseUrl + "inspectionAjax"
+        } else if (document.getElementById('singDetailWrap')) {
+            url =  baseUrl + "signDetailsAjax"
+        }
         $.ajax({
-            url:baseUrl + "inspectionAjax",
+            url: url,
             // url: "https://www.easy-mock.com/mock/5b9c69299c53ef2876d29227/list/cw",
             type: "POST",
             dataType: "json",
@@ -29,8 +36,6 @@
     }
 
     function dataDeal(data) {
-        console.log(data)
-        console.log("render")
         let dataArr = data
         // 学校id
         let schoolId = dataArr["inspec"]["schoolid"]
@@ -40,20 +45,17 @@
         let qiandao = dataArr["inspec"]["sign_num"]
         // 请假人数
         let qingjia = dataArr["inspec"]["leaveStu"]
-        console.log(schoolId)
-        console.log(qiandao)
-
-        console.log("学生总数" + sumNum)
+        // 学生体温列表
+        let heartData = dataArr['heat']
 
         // 学校列表
         let schooArr = dataArr["schoolArr"]
-        console.log("学校列表")
-        console.log(schooArr)
 
         // 渲染
         root.renBeHere([sumNum, qiandao, qingjia])
         root.renLeave(qingjia)
         root.bingChart([sumNum, qiandao])
+        root.renderHeart (heartData)
     }
 
     // 初始化
