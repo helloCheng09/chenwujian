@@ -5,8 +5,10 @@
         let url = ''
         // http://www.mamawozaizhe.com/inspection/inspection/signDetailsAjax
         if (document.getElementById('indexWrap')) {
+            // 教育局 获取各个学校情况
             url = baseUrl + "inspectionAjax"
         } else if (document.getElementById('singDetailWrap')) {
+            // 校长获取各个班级情况
             url =  baseUrl + "signDetailsAjax"
         }
         $.ajax({
